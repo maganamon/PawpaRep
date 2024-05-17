@@ -59,5 +59,6 @@ animations = [{
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(27, 9)
 sprite_frames = SubResource("SpriteFrames_m0bg3")
 animation = &"Idle"

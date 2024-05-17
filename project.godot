@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="Game Test"
+run/main_scene="res://Scenes/chris_player.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/scale=4.0
 
 [dotnet]
 
 project/assembly_name="Game Test"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

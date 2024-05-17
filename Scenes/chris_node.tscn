@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://nuxmk1ebvdtn"]
-
-[node name="chris node" type="Node2D"]
-
-[node name="bozo" type="CharacterBody2D" parent="."]
-position = Vector2(32, 0)
