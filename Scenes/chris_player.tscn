@@ -1,7 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://bwku1qxiytoci"]
+[gd_scene load_steps=56 format=3 uid="uid://bwku1qxiytoci"]
 
 [ext_resource type="Script" path="res://Scripts/ChrisPlayer.gd" id="1_028mv"]
 [ext_resource type="Texture2D" uid="uid://h5rekgiiy6vk" path="res://addons/sprites/characters/player.png" id="2_moqw5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cwft2"]
+radius = 10.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhmls"]
 atlas = ExtResource("2_moqw5")
@@ -414,11 +417,18 @@ animations = [{
 }]
 
 [node name="ChrisPlayer" type="CharacterBody2D"]
+position = Vector2(520, 232)
 script = ExtResource("1_028mv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cwft2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+position = Vector2(-3, -9)
 sprite_frames = SubResource("SpriteFrames_17wq1")
 animation = &"side_attack"
 frame_progress = 0.953372
+
+[node name="Bullet_Marker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(12, 0)

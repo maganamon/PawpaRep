@@ -75,3 +75,23 @@ func playAnimation(movement):
 			animation.play("back_walk")  # Play walking animation for up
 		elif movement == 0:
 			animation.play("back_idle")  # Play idle animation for up
+
+
+#   Shootiing Mechanics Start Here:
+#  ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#@export var Bullet : 
+#Shoot Function
+func shoot():
+	const BULLET = preload("res://Scenes/projectile_scene.tscn")
+	var new_bullet = BULLET.instantiate()
+	new_bullet.global_position = $Bullet_Marker.global_position
+	$Bullet_Marker.add_child(new_bullet)
+func _process(delta):
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+	
+	#if Input.is_action_just_pressed("shoot"):
+	#	shoot()
+
+
+
