@@ -18,22 +18,22 @@ func _physics_process(delta):
 
 # Function to handle player movement input and apply velocity
 func player_movement(delta):
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("new_right"):
 		currentDirection = "right"  # Set current direction to right
 		playAnimation(1)  # Play walking animation
 		velocity.x = speed  # Set velocity to move right
 		velocity.y = 0  # Stop vertical movement
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("new_left"):
 		currentDirection = "left"  # Set current direction to left
 		playAnimation(1)  # Play walking animation
 		velocity.x = -speed  # Set velocity to move left
 		velocity.y = 0  # Stop vertical movement
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("new_down"):
 		currentDirection = "down"  # Set current direction to down
 		playAnimation(1)  # Play walking animation
 		velocity.x = 0  # Stop horizontal movement
 		velocity.y = speed  # Set velocity to move down
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("new_up"):
 		currentDirection = "up"  # Set current direction to up
 		playAnimation(1)  # Play walking animation
 		velocity.x = 0  # Stop horizontal movement
