@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvraxo75opn72"]
+
+[ext_resource type="Script" path="res://Scripts/mob.gd" id="1_ct010"]
+[ext_resource type="Texture2D" uid="uid://daj17uuoa2atb" path="res://addons/sprites/characters/bozo_bitch_left.png" id="2_w232v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ualxv"]
+size = Vector2(194, 227)
+
+[node name="Mob" type="CharacterBody2D"]
+position = Vector2(586, 274)
+scale = Vector2(0.13, 0.13)
+script = ExtResource("1_ct010")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w232v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -9.5)
+shape = SubResource("RectangleShape2D_ualxv")

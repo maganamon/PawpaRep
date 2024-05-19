@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://csqpte7s1dlyf"]
+
+[ext_resource type="PackedScene" uid="uid://bwku1qxiytoci" path="res://Scenes/chris_player.tscn" id="1_4r3me"]
+[ext_resource type="PackedScene" uid="uid://cvraxo75opn72" path="res://Scenes/Base Mobs/Clown_Bozo.tscn" id="2_mwnoq"]
+
+[node name="Game" type="Node2D"]
+
+[node name="ChrisPlayer" parent="." instance=ExtResource("1_4r3me")]
+
+[node name="Mob" parent="." instance=ExtResource("2_mwnoq")]
+position = Vector2(122, 43)
+scale = Vector2(0.103489, 0.103489)
