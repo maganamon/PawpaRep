@@ -17,7 +17,7 @@ func _physics_process(delta):
 	player_movement(delta)
 
 # Function to handle player movement input and apply velocity
-func player_movement(delta):
+func player_movement(_delta):
 	if Input.is_action_pressed("new_right"):
 		currentDirection = "right"  # Set current direction to right
 		playAnimation(1)  # Play walking animation
@@ -49,7 +49,8 @@ func player_movement(delta):
 # Function to play the appropriate animation based on direction and movement state
 func playAnimation(movement):
 	var direction = currentDirection  # Get the current direction
-	var animation = $CollisionShape2D/AnimatedSprite2D  # Get the AnimatedSprite2D node
+	var animation = $CollisionShape2D/AnimatedSprite2D
+	  # Get the AnimatedSprite2D node
 	
 	if direction == "right":
 		animation.flip_h = false  # Ensure sprite is not flipped horizontally
@@ -79,19 +80,21 @@ func playAnimation(movement):
 
 #   Shootiing Mechanics Start Here:
 #  ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#@export var Bullet : 
 #Shoot Function
 func shoot():
-	const BULLET = preload("res://Scenes/projectile_scene.tscn")
+	const BULLET = preload("res://Scenes/ProjectileII.tscn")
 	var new_bullet = BULLET.instantiate()
-	new_bullet.global_position = $Bullet_Marker.global_position
-	$Bullet_Marker.add_child(new_bullet)
-func _process(delta):
+	new_bullet.position = %Bullet_Marker.global_position #marker's gpos
+	get_parent().add_child(new_bullet)
+func _process(_delta):
+	var pos = global_position  # Get the global position of the player
+	print("Player" + str(pos))
+
+	# Pass player's global position to the marker script
+	$Bullet_Marker.update_position(pos)
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	
-	#if Input.is_action_just_pressed("shoot"):
-	#	shoot()
 
 
 

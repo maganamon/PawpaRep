@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://djvyeyhnjo34c"]
+
+[ext_resource type="Script" path="res://Scripts/Second_Bullet.gd" id="1_sw7cp"]
+[ext_resource type="Texture2D" uid="uid://krdj5kqataxs" path="res://addons/sprites/objects/laserRed01.png" id="2_8evnh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5j6wj"]
+radius = 6.68451
+height = 59.4246
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5cds"]
+atlas = ExtResource("2_8evnh")
+region = Rect2(0, 0, 9, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufeoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5cds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="BulletII" type="Area2D"]
+scale = Vector2(0.530121, 0.530121)
+script = ExtResource("1_sw7cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.56498
+shape = SubResource("CapsuleShape2D_5j6wj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.57059
+sprite_frames = SubResource("SpriteFrames_ufeoo")
