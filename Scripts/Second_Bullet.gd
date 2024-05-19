@@ -20,3 +20,10 @@ func _physics_process(delta):
 	# Check if the bullet has traveled beyond the maximum distance
 	if traveled_distance > MAX_DISTANCE:
 		queue_free()
+		
+# Funct to destroy the bullet when it makes
+# contact with an enemy
+func _on_Bullet_body_entered(body):
+	if body.is_in_group("mobs"):
+		body.queue_free()
+	queue_free()

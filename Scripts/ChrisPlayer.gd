@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 # Speed constant defining how fast the player moves
 const speed = 100
-
 # Variable to store the current direction of the player
 var currentDirection = "none"
-
+# Track if left mouse button is currently pressed
+var can_shoot = true
+# Adjust this value to control the rate of fire
+var shooting_cooldown = 0.2
 # Called when the node is added to the scene
 func _ready():
 	# Play the front idle animation when the game starts
@@ -82,18 +84,27 @@ func playAnimation(movement):
 #  ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #Shoot Function
 func shoot():
-	const BULLET = preload("res://Scenes/ProjectileII.tscn")
-	var new_bullet = BULLET.instantiate()
-	new_bullet.position = %Bullet_Marker.global_position #marker's gpos
-	get_parent().add_child(new_bullet)
+	#Create a Bullet on Marker
+		const BULLET = preload("res://Scenes/ProjectileII.tscn")
+		var new_bullet = BULLET.instantiate()
+		new_bullet.position = %Bullet_Marker.global_position #marker's gpos
+		get_parent().add_child(new_bullet)
+		
 func _process(_delta):
 	var pos = global_position  # Get the global position of the player
 
 	# Pass player's global position to the marker script
 	$Bullet_Marker.update_position(pos)
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
 	
-
-
-
+## Shooting Logic starts Here:
+########################################################
+	# Check if left mouse button is pressed
+	if can_shoot && Input.is_action_pressed("shoot"):
+		# Start shooting
+		shoot()
+		
+		can_shoot = false
+		$Timer.start(shooting_cooldown)
+		
+func _on_timer_timeout():
+	can_shoot = true
