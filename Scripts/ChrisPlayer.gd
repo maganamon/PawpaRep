@@ -88,7 +88,6 @@ func shoot():
 	get_parent().add_child(new_bullet)
 func _process(_delta):
 	var pos = global_position  # Get the global position of the player
-	print("Player" + str(pos))
 
 	# Pass player's global position to the marker script
 	$Bullet_Marker.update_position(pos)
