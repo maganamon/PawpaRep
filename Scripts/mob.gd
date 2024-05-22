@@ -15,7 +15,7 @@ func _ready():
 	# Assuming Player is the root node of the player character
 	player = get_node("/root/Game/ChrisPlayer") 
 func _process(_delta):
-	if player and not player.is_queued_for_deletion():
+	if player != null:
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * speed
 		move_and_slide()

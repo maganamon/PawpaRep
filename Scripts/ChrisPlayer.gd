@@ -120,9 +120,6 @@ func _on_timer_timeout():
 # Function to take damage
 func take_damage_mob(dmg_amt, pushed):
 	# Apply knockback
-	if pushed == Vector2.ZERO:  # Check if pushed is zero vector
-		var mob = get_node("/root/Game/mob")
-		pushed = - global_position.direction_to(mob.global_position)
 	velocity = pushed * 1000  # Adjust the knockback strength as needed
 	move_and_slide()
 	health -= dmg_amt # Reduce current health by damage amount
