@@ -7,13 +7,19 @@
 size = Vector2(194, 227)
 
 [node name="Mob" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(586, 274)
 scale = Vector2(0.13, 0.13)
 script = ExtResource("1_ct010")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 texture = ExtResource("2_w232v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(2, -9.5)
 shape = SubResource("RectangleShape2D_ualxv")

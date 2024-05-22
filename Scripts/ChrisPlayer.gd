@@ -11,7 +11,7 @@ var shooting_cooldown = 0.2
 # Called when the node is added to the scene
 func _ready():
 	# Play the front idle animation when the game starts
-	$CollisionShape2D/AnimatedSprite2D.play("front_idle")
+	$AnimatedSprite2D.play("front_idle")
 
 # This function is called every physics frame (fixed timestep)
 func _physics_process(delta):
@@ -51,7 +51,7 @@ func player_movement(_delta):
 # Function to play the appropriate animation based on direction and movement state
 func playAnimation(movement):
 	var direction = currentDirection  # Get the current direction
-	var animation = $CollisionShape2D/AnimatedSprite2D
+	var animation = $AnimatedSprite2D
 	  # Get the AnimatedSprite2D node
 	
 	if direction == "right":

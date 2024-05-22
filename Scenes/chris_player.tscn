@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://h5rekgiiy6vk" path="res://addons/sprites/characters/player.png" id="2_moqw5"]
 [ext_resource type="Script" path="res://Scripts/Bullet_Marker.gd" id="3_ilk06"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cwft2"]
-radius = 10.5
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhmls"]
 atlas = ExtResource("2_moqw5")
 region = Rect2(0, 384, 48, 48)
@@ -417,24 +414,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cwft2"]
+radius = 4.12311
+
 [node name="ChrisPlayer" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(1, 0)
 script = ExtResource("1_028mv")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_17wq1")
+animation = &"side_idle"
+offset = Vector2(0, -9)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_cwft2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(-3, -9)
-sprite_frames = SubResource("SpriteFrames_17wq1")
-animation = &"side_attack"
-frame_progress = 0.953372
-
 [node name="Camera2D" type="Camera2D" parent="."]
+y_sort_enabled = true
 
 [node name="Bullet_Marker" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(10, 1)
+y_sort_enabled = true
 scale = Vector2(2, 2)
 gizmo_extents = 4.0
 script = ExtResource("3_ilk06")
