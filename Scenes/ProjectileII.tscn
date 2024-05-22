@@ -23,13 +23,19 @@ animations = [{
 }]
 
 [node name="BulletII" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
 scale = Vector2(0.530121, 0.530121)
 script = ExtResource("1_sw7cp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 rotation = -1.56498
 shape = SubResource("CapsuleShape2D_5j6wj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 rotation = 1.57059
 sprite_frames = SubResource("SpriteFrames_ufeoo")
