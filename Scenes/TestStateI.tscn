@@ -5,8 +5,10 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="ChrisPlayer" parent="." instance=ExtResource("1_4r3me")]
-
 [node name="Mob" parent="." instance=ExtResource("2_mwnoq")]
-position = Vector2(122, 43)
+position = Vector2(0.999977, -71)
 scale = Vector2(0.103489, 0.103489)
+
+[node name="ChrisPlayer" parent="." instance=ExtResource("1_4r3me")]
+position = Vector2(1, 7.62939e-06)
+scale = Vector2(1, 1)

@@ -421,6 +421,7 @@ radius = 4.12311
 z_index = 2
 y_sort_enabled = true
 position = Vector2(1, 0)
+motion_mode = 1
 script = ExtResource("1_028mv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -438,6 +439,7 @@ position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_cwft2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
 y_sort_enabled = true
 
 [node name="Bullet_Marker" type="Marker2D" parent="."]

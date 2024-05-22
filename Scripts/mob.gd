@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed = 30  # Adjust the speed of the mob as needed
 var player
+var mob
  # Amount of damage the enemy will inflict on the player
 var damage_dealt = 1
 var health = 10
@@ -14,7 +15,7 @@ func _ready():
 	# Assuming Player is the root node of the player character
 	player = get_node("/root/Game/ChrisPlayer") 
 func _process(_delta):
-	if player:
+	if player and not player.is_queued_for_deletion():
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * speed
 		move_and_slide()
@@ -37,5 +38,5 @@ func take_damage():
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage_mob"):
-		var push = global_position.direction_to(player.global_position)
+		var push = global_position.direction_to(body.global_position)
 		body.take_damage_mob(damage_dealt, push)

@@ -120,6 +120,9 @@ func _on_timer_timeout():
 # Function to take damage
 func take_damage_mob(dmg_amt, pushed):
 	# Apply knockback
+	if pushed == Vector2.ZERO:  # Check if pushed is zero vector
+		var mob = get_node("/root/Game/mob")
+		pushed = - global_position.direction_to(mob.global_position)
 	velocity = pushed * 1000  # Adjust the knockback strength as needed
 	move_and_slide()
 	health -= dmg_amt # Reduce current health by damage amount
@@ -133,3 +136,7 @@ func die():
 	# You can add additional logic here, like playing a death animation,
 	# restarting the level, or showing a game over screen.
 	queue_free()  # Remove the player from the scene
+	# After a delay, you might want to restart the level or show a game over screen
+	await get_tree().create_timer(1.0).timeout
+	# Here you can restart the level or show a game over screen
+	get_tree().reload_current_scene()
