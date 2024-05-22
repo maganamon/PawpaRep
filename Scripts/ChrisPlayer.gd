@@ -118,7 +118,10 @@ func _on_timer_timeout():
 # Health mechanics start here:
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Function to take damage
-func take_damage_mob(dmg_amt):
+func take_damage_mob(dmg_amt, pushed):
+	# Apply knockback
+	velocity = pushed * 1000  # Adjust the knockback strength as needed
+	move_and_slide()
 	health -= dmg_amt # Reduce current health by damage amount
 	if health <= 0:
 		health = 0

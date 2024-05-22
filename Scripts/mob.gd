@@ -37,4 +37,5 @@ func take_damage():
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage_mob"):
-		body.take_damage_mob(damage_dealt)
+		var push = global_position.direction_to(player.global_position)
+		body.take_damage_mob(damage_dealt, push)
