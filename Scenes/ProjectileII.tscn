@@ -31,11 +31,15 @@ script = ExtResource("1_sw7cp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
 y_sort_enabled = true
+position = Vector2(28.2954, -1.39698e-08)
 rotation = -1.56498
 shape = SubResource("CapsuleShape2D_5j6wj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 y_sort_enabled = true
+position = Vector2(28.2954, 4.36557e-10)
 rotation = 1.57059
 sprite_frames = SubResource("SpriteFrames_ufeoo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

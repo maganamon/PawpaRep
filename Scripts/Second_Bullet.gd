@@ -3,6 +3,7 @@ extends Area2D
 var speed = 750
 var direction = Vector2.ZERO
 var traveled_distance = 0
+var damage = 1
 const MAX_DISTANCE = 500  # Adjust this value as needed
 
 func _ready():
@@ -21,9 +22,9 @@ func _physics_process(delta):
 	if traveled_distance > MAX_DISTANCE:
 		queue_free()
 		
-# Funct to destroy the bullet when it makes
-# contact with an enemy
-func _on_Bullet_body_entered(body):
-	if body.is_in_group("mobs"):
-		body.queue_free()
+
+
+func _on_body_entered(body):
 	queue_free()
+	if body.has_method("take_damage"):
+		body.take_damage()

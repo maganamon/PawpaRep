@@ -9,7 +9,13 @@ var can_shoot = true
 # Adjust this value to control the rate of fire
 var shooting_cooldown = 0.2
 # Called when the node is added to the scene
+
+#health
+var health_max = 10
+var health = health_max
+
 func _ready():
+	
 	# Play the front idle animation when the game starts
 	$AnimatedSprite2D.play("front_idle")
 
@@ -108,3 +114,19 @@ func _process(_delta):
 		
 func _on_timer_timeout():
 	can_shoot = true
+	
+# Health mechanics start here:
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Function to take damage
+func take_damage_mob(dmg_amt):
+	health -= dmg_amt # Reduce current health by damage amount
+	if health <= 0:
+		health = 0
+		die()  # Call the die function if health reaches 0
+
+# Function to handle player death
+func die():
+	print("Player has died.")
+	# You can add additional logic here, like playing a death animation,
+	# restarting the level, or showing a game over screen.
+	queue_free()  # Remove the player from the scene
