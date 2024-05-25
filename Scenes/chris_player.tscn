@@ -441,6 +441,12 @@ shape = SubResource("CircleShape2D_cwft2")
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 2
 y_sort_enabled = true
+limit_left = -50
+limit_top = -54
+limit_right = 461
+limit_bottom = 233
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="Bullet_Marker" type="Marker2D" parent="."]
 unique_name_in_owner = true
