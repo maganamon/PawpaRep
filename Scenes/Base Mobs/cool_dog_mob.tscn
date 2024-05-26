@@ -14,11 +14,15 @@ scale = Vector2(2.94835, 2.94835)
 script = ExtResource("1_cegg5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(-3, 8.00001)
 scale = Vector2(0.0702875, 0.0702875)
 texture = ExtResource("2_d8sei")
 
 [node name="Area2D" type="Area2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 20)
@@ -26,6 +30,8 @@ rotation = 1.56731
 shape = SubResource("CapsuleShape2D_ykffc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
 position = Vector2(1, 20)
 rotation = 1.56731
 scale = Vector2(0.933808, 0.933808)
