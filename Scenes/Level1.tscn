@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://x48b6pneke8k"]
+[gd_scene load_steps=15 format=3 uid="uid://x48b6pneke8k"]
 
 [ext_resource type="Texture2D" uid="uid://btjy78fiqjx2x" path="res://addons/sprites/tilesets/plains.png" id="1_ecmh8"]
 [ext_resource type="PackedScene" uid="uid://bwku1qxiytoci" path="res://Scenes/chris_player.tscn" id="1_qmsdg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b8vihcx2e4crs" path="res://addons/sprites/tilesets/fences.png" id="4_7vc1w"]
 [ext_resource type="Texture2D" uid="uid://dd2h7fb1tlcfq" path="res://addons/sprites/tilesets/walls/walls.png" id="5_tdhxl"]
 [ext_resource type="PackedScene" uid="uid://cvraxo75opn72" path="res://Scenes/Base Mobs/Clown_Bozo.tscn" id="5_wwx5y"]
+[ext_resource type="PackedScene" uid="uid://dnewd00n25h0h" path="res://Scenes/Base Mobs/cool_dog_mob.tscn" id="8_ytjer"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_queq8"]
 texture = ExtResource("1_ecmh8")
@@ -336,3 +337,9 @@ layer_2/tile_data = PackedInt32Array(2, 655362, 7, 262163, 655362, 7, 24, 655362
 [node name="Mob" parent="." instance=ExtResource("5_wwx5y")]
 position = Vector2(383, 100)
 scale = Vector2(0.11, 0.11)
+
+[node name="cool_dog" parent="." instance=ExtResource("8_ytjer")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-60, 37)
+scale = Vector2(0.715068, 0.715068)

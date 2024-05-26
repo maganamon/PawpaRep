@@ -94,7 +94,7 @@ func playAnimation(movement):
 #Shoot Function
 func shoot():
 	#Create a Bullet on Marker
-		const BULLET = preload("res://Scenes/ProjectileII.tscn")
+		const BULLET = preload("res://Scenes/Obstacles/ProjectileII.tscn")
 		var new_bullet = BULLET.instantiate()
 		new_bullet.position = %Bullet_Marker.global_position #marker's gpos
 		get_parent().add_child(new_bullet)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb3m3x5wr625k"]
+
+[ext_resource type="Texture2D" uid="uid://cse6fk1h01nwe" path="res://addons/sprites/objects/bone_proj.png" id="1_pa82h"]
+[ext_resource type="Script" path="res://Scripts/bone_projectile.gd" id="1_xv1cy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ksvr"]
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e645u"]
+radius = 7.00422
+height = 88.0078
+
+[node name="Area2D" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(0.111152, 0.111152)
+script = ExtResource("1_xv1cy")
+
+[node name="Right_Bone" type="CollisionShape2D" parent="."]
+position = Vector2(38, 1)
+shape = SubResource("CapsuleShape2D_2ksvr")
+
+[node name="Center_Bone" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+rotation = -1.56651
+shape = SubResource("CapsuleShape2D_e645u")
+
+[node name="Left_Bone" type="CollisionShape2D" parent="."]
+position = Vector2(-29, 1)
+shape = SubResource("CapsuleShape2D_2ksvr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 1)
+scale = Vector2(0.137143, 0.137143)
+texture = ExtResource("1_pa82h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

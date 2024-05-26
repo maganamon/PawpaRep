@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://djvyeyhnjo34c"]
 
-[ext_resource type="Script" path="res://Scripts/Second_Bullet.gd" id="1_sw7cp"]
-[ext_resource type="Texture2D" uid="uid://krdj5kqataxs" path="res://addons/sprites/objects/laserRed01.png" id="2_8evnh"]
+[ext_resource type="Script" path="res://Scripts/Second_Bullet.gd" id="1_m8edq"]
+[ext_resource type="Texture2D" uid="uid://krdj5kqataxs" path="res://addons/sprites/objects/laserRed01.png" id="2_3x6gw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5j6wj"]
 radius = 6.68451
 height = 59.4246
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5cds"]
-atlas = ExtResource("2_8evnh")
+atlas = ExtResource("2_3x6gw")
 region = Rect2(0, 0, 9, 54)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ufeoo"]
@@ -26,7 +26,7 @@ animations = [{
 z_index = 2
 y_sort_enabled = true
 scale = Vector2(0.530121, 0.530121)
-script = ExtResource("1_sw7cp")
+script = ExtResource("1_m8edq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2

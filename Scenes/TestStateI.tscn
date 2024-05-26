@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://csqpte7s1dlyf"]
+[gd_scene load_steps=4 format=3 uid="uid://csqpte7s1dlyf"]
 
 [ext_resource type="PackedScene" uid="uid://bwku1qxiytoci" path="res://Scenes/chris_player.tscn" id="1_4r3me"]
 [ext_resource type="PackedScene" uid="uid://cvraxo75opn72" path="res://Scenes/Base Mobs/Clown_Bozo.tscn" id="2_mwnoq"]
+[ext_resource type="PackedScene" uid="uid://dnewd00n25h0h" path="res://Scenes/Base Mobs/cool_dog_mob.tscn" id="3_8si5n"]
 
 [node name="Game" type="Node2D"]
 
@@ -12,3 +13,7 @@ scale = Vector2(1, 1)
 [node name="Mob" parent="." instance=ExtResource("2_mwnoq")]
 position = Vector2(0.999977, -71)
 scale = Vector2(0.103489, 0.103489)
+
+[node name="cool_dog" parent="." instance=ExtResource("3_8si5n")]
+position = Vector2(152, -59)
+scale = Vector2(0.699728, 0.699728)
