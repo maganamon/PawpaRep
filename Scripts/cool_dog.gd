@@ -3,7 +3,7 @@ extends CharacterBody2D
 var projectile_scene = preload("res://Scenes/Obstacles/bone_projectile.tscn")
 var player
 var mob
-const SHOOT_INTERVAL = 1.0  # Adjust this value to control the rate of fire
+const SHOOT_INTERVAL = 1.2  # Adjust this value to control the rate of fire
 var shooting_timer
 
  # Amount of damage the enemy will inflict on the player
@@ -28,6 +28,10 @@ func _update_sprite_direction(direction):
 	elif direction.x < 0:
 		sprite.texture = left_sprite_texture   # Use left sprite texture
 
+func take_damage():
+	health -= 1
+	if health == 0:
+		queue_free()
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage_mob"):

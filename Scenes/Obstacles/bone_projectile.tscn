@@ -11,7 +11,7 @@ radius = 7.00422
 height = 88.0078
 
 [node name="Area2D" type="Area2D"]
-z_index = 2
+z_index = 3
 y_sort_enabled = true
 scale = Vector2(0.111152, 0.111152)
 script = ExtResource("1_xv1cy")
