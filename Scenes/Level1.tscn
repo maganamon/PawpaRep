@@ -313,6 +313,9 @@ sources/6 = SubResource("TileSetAtlasSource_1po23")
 z_index = 2
 y_sort_enabled = true
 
+[node name="ChrisPlayer" parent="." instance=ExtResource("1_qmsdg")]
+position = Vector2(207, 95)
+
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 2
 y_sort_enabled = true
@@ -330,12 +333,6 @@ layer_2/y_sort_enabled = true
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(2, 655362, 7, 262163, 655362, 7, 24, 655362, 7, 655368, 655362, 7, 9, 2, 5, 262161, 2, 5, 589825, 2, 5, 589829, 524290, 6, 262150, 655362, 7, 131077, 524290, 6, 6, 524290, 6, 655376, 524290, 6, 524311, 524290, 6, 131094, 524290, 6, 19, 393218, 7, 589836, 393218, 7, 655381, 393218, 7, 65549, 524290, 6, 196633, 2, 1, 65559, 2, 1, 196616, 2, 1, 720900, 2, 1, 720915, 2, 1, 131083, 327682, 0, 196620, 2, 0, 655371, 327682, 0)
 
-[node name="ChrisPlayer" parent="." instance=ExtResource("1_qmsdg")]
-position = Vector2(207, 95)
-
 [node name="Mob" parent="." instance=ExtResource("5_wwx5y")]
 position = Vector2(383, 100)
 scale = Vector2(0.11, 0.11)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(184, 233)

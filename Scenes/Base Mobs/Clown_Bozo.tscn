@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://daj17uuoa2atb" path="res://addons/sprites/characters/bozo_bitch_left.png" id="2_w232v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ualxv"]
-size = Vector2(146.154, 207.692)
+size = Vector2(123.077, 53.8461)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq7ed"]
-size = Vector2(161.539, 223.077)
+size = Vector2(138.461, 69.2309)
 
 [node name="Mob" type="CharacterBody2D"]
 z_index = 2
@@ -20,7 +20,7 @@ script = ExtResource("1_ct010")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(-3.84619, -3.84619)
+position = Vector2(0, 73.0769)
 shape = SubResource("RectangleShape2D_ualxv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -35,7 +35,7 @@ y_sort_enabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(-3.84619, -3.84619)
+position = Vector2(0.000488281, 73.0769)
 shape = SubResource("RectangleShape2D_xq7ed")
 
 [node name="Timer" type="Timer" parent="."]
