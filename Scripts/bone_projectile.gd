@@ -35,3 +35,4 @@ func _on_body_entered(body):
 	if body.has_method("take_damage_mob"):
 		var push = global_position.direction_to(body.global_position) * 0.5
 		body.take_damage_mob(damage_dealt, push)
+		queue_free()
