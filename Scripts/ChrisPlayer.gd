@@ -9,9 +9,9 @@ var can_shoot = true
 # Adjust this value to control the rate of fire
 var shooting_cooldown = 0.2
 # Called when the node is added to the scene
-var knockback_pos1 = Vector2.ZERO  # To store knockback velocity
-var knockback_target = Vector2.ZERO
-var knockback_decay = 0.0
+var knockback = Vector2.ZERO  # To store knockback velocity
+var knockback_tween
+var knockback_decay = 1.0
 
 #health
 var health_max = 10
@@ -26,7 +26,9 @@ func _ready():
 func _physics_process(delta):
 	# Handle player movement based on input
 	player_movement(delta)
-	knockback_decay = (delta * 3)
+	if knockback != Vector2.ZERO:
+		velocity += knockback
+		move_and_slide()
 # Function to handle player movement input and apply velocity
 func player_movement(_delta):
 	if Input.is_action_pressed("new_right"):
@@ -122,16 +124,18 @@ func _on_timer_timeout():
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Function to take damage
 func take_damage_mob(dmg_amt, pushed):
-	# Apply knockback
-	var player = get_node("/root/Game/ChrisPlayer")
-	knockback_target = Vector2.ZERO + (pushed * 1000)
-	player.global_position = player.global_position.lerp(knockback_target, knockback_decay)  # Reduce knockback over time
-	
-
 	health -= dmg_amt # Reduce current health by damage amount
 	if health <= 0:
 		health = 0
 		die()  # Call the die function if health reaches 0
+	# Apply knockback
+	knockback = Vector2.ZERO + (pushed * 250)
+	knockback_tween = get_tree().create_tween()
+	knockback_tween.parallel().tween_property(self, "knockback", Vector2.ZERO, knockback_decay)
+	
+	#Change color when hit
+	$AnimatedSprite2D.modulate = Color(1,0,0,1)
+	knockback_tween.parallel().tween_property($AnimatedSprite2D, "modulate", Color(1,1,1,1), knockback_decay)
 
 # Function to handle player death
 func die():
