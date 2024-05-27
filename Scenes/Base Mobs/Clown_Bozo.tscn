@@ -14,7 +14,9 @@ z_index = 2
 y_sort_enabled = true
 position = Vector2(586, 274)
 scale = Vector2(0.13, 0.13)
+collision_mask = 3
 motion_mode = 1
+wall_min_slide_angle = 0.0872665
 script = ExtResource("1_ct010")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -39,5 +41,10 @@ position = Vector2(0.000488281, 73.0769)
 shape = SubResource("RectangleShape2D_xq7ed")
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

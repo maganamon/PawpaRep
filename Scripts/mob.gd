@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 var speed = 30  # Adjust the speed of the mob as needed
 var player
 var mob
@@ -16,13 +17,16 @@ func _ready():
 	player = get_node("/root/Game/ChrisPlayer") 
 func _process(_delta):
 	if player != null:
-		var direction = global_position.direction_to(player.global_position)
+		var direction = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = direction * speed
 		move_and_slide()
 		_update_sprite_direction(direction)
 	else:
 		pass
 		
+func makepath() -> void:
+	nav_agent.target_position = player.global_position
+
 # Update the sprite direction based on the movement direction
 func _update_sprite_direction(direction):
 	var sprite = $Sprite2D  # Assuming the Sprite2D node is a child of the mob
@@ -40,3 +44,7 @@ func _on_area_2d_body_entered(body):
 	if body.has_method("take_damage_mob"):
 		var push = global_position.direction_to(body.global_position)
 		body.take_damage_mob(damage_dealt, push)
+
+
+func _on_timer_timeout():
+	makepath()
