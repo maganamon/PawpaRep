@@ -10,7 +10,7 @@ height = 21.9999
 [node name="cool_dog" type="CharacterBody2D"]
 z_index = 2
 y_sort_enabled = true
-scale = Vector2(2.94835, 2.94835)
+scale = Vector2(0.8, 0.8)
 collision_mask = 3
 script = ExtResource("1_cegg5")
 

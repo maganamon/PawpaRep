@@ -11,7 +11,7 @@ var shooting_cooldown = 0.2
 # Called when the node is added to the scene
 var knockback = Vector2.ZERO  # To store knockback velocity
 var knockback_tween
-var knockback_decay = 1.0
+var knockback_decay = 0.75
 
 #health
 var health_max = 10
