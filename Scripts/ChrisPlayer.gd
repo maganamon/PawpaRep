@@ -4,17 +4,23 @@ extends CharacterBody2D
 const speed = 100
 # Variable to store the current direction of the player
 var currentDirection = "none"
+
+##Shooting Variables #######################
 # Track if left mouse button is currently pressed
 var can_shoot = true
 # Adjust this value to control the rate of fire
-var shooting_cooldown = 0.2
+var shooting_cooldown = 0.15
+
+##Healing Variables #####################
+var can_heal = true
+var healing_pause = 3.0
 # Called when the node is added to the scene
 var knockback = Vector2.ZERO  # To store knockback velocity
 var knockback_tween
 var knockback_decay = 0.75
 
-#health
-var health_max = 10
+#Health
+var health_max = 10.0
 var health = health_max
 
 func _ready():
@@ -96,6 +102,7 @@ func playAnimation(movement):
 #Shoot Function
 func shoot():
 	#Create a Bullet on Marker
+		health -= 0.1
 		const BULLET = preload("res://Scenes/Obstacles/ProjectileII.tscn")
 		var new_bullet = BULLET.instantiate()
 		new_bullet.position = %Bullet_Marker.global_position #marker's gpos
@@ -105,7 +112,8 @@ func _process(_delta):
 	var pos = global_position  # Get the global position of the player
 
 	# Pass player's global position to the marker script
-	$Bullet_Marker.update_position(pos)
+	if (health < health_max) && can_heal:
+		health += 0.05
 	
 ## Shooting Logic starts Here:
 ########################################################
@@ -113,10 +121,12 @@ func _process(_delta):
 	if can_shoot && Input.is_action_pressed("shoot"):
 		# Start shooting
 		shoot()
-		
+### 2 second cooldown to heal after shooting. Can NOT...
+#### ...heal while shooting
+		can_heal = false
 		can_shoot = false
+		$Health_Timer.start(healing_pause - 1)
 		$Timer.start(shooting_cooldown)
-		
 func _on_timer_timeout():
 	can_shoot = true
 	
@@ -124,11 +134,15 @@ func _on_timer_timeout():
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Function to take damage
 func take_damage_mob(dmg_amt, pushed):
+	can_heal = false
 	health -= dmg_amt # Reduce current health by damage amount
+	health_max -= dmg_amt
 	if health <= 0:
 		health = 0
 		die()  # Call the die function if health reaches 0
-	# Apply knockback
+	### Have a 3 second healing cooldown after being hit ###
+	$Health_Timer.start(healing_pause)
+	### knock back logic here:
 	knockback = Vector2.ZERO + (pushed * 250)
 	knockback_tween = get_tree().create_tween()
 	knockback_tween.parallel().tween_property(self, "knockback", Vector2.ZERO, knockback_decay)
@@ -136,7 +150,6 @@ func take_damage_mob(dmg_amt, pushed):
 	#Change color when hit
 	$AnimatedSprite2D.modulate = Color(1,0,0,1)
 	knockback_tween.parallel().tween_property($AnimatedSprite2D, "modulate", Color(1,1,1,1), knockback_decay)
-
 # Function to handle player death
 func die():
 	print("Player has died.")
@@ -147,3 +160,7 @@ func die():
 	await get_tree().create_timer(1.0).timeout
 	# Here you can restart the level or show a game over screen
 	get_tree().reload_current_scene()
+
+
+func _on_health_timer_timeout():
+	can_heal = true

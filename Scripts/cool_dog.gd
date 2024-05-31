@@ -29,7 +29,6 @@ func _update_sprite_direction():
 		elif direction_pl.x < 0:
 			sprite.texture = left_sprite_texture   # Use left sprite texture
 
-
 func take_damage():
 	health -= 1
 	if health == 0:

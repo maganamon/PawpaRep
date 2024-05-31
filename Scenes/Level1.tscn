@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://x48b6pneke8k"]
+[gd_scene load_steps=29 format=3 uid="uid://x48b6pneke8k"]
 
 [ext_resource type="Script" path="res://Scenes/level1_spawner.gd" id="1_47jlv"]
 [ext_resource type="Texture2D" uid="uid://btjy78fiqjx2x" path="res://addons/sprites/tilesets/plains.png" id="1_ecmh8"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dd2h7fb1tlcfq" path="res://addons/sprites/tilesets/walls/walls.png" id="5_tdhxl"]
 [ext_resource type="PackedScene" uid="uid://cvraxo75opn72" path="res://Scenes/Base Mobs/Clown_Bozo.tscn" id="5_wwx5y"]
 [ext_resource type="PackedScene" uid="uid://dnewd00n25h0h" path="res://Scenes/Base Mobs/cool_dog_mob.tscn" id="8_ytjer"]
+[ext_resource type="Texture2D" uid="uid://b6g1hrif86ms0" path="res://addons/sprites/objects/Health_Under.png" id="10_vim17"]
+[ext_resource type="Texture2D" uid="uid://bhcc7wkpk5oks" path="res://addons/sprites/objects/Health_Progress.png" id="11_kpei0"]
+[ext_resource type="Script" path="res://Scenes/TextureProgressBar.gd" id="12_gksi6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ecxni"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -447,5 +450,23 @@ offset_left = -34.0
 offset_top = -35.0
 offset_right = 45.0
 offset_bottom = 41.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -42.0
+offset_right = 61.0
+offset_bottom = -27.0
+grow_vertical = 0
+rotation = -1.57077
+scale = Vector2(3.3019, 4.12798)
+value = 100.0
+texture_under = ExtResource("10_vim17")
+texture_progress = ExtResource("11_kpei0")
+script = ExtResource("12_gksi6")
 
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
