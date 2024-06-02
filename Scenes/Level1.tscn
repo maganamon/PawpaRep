@@ -457,10 +457,10 @@ offset_bottom = 41.0
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -42.0
-offset_right = 61.0
-offset_bottom = -27.0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 23.0
 grow_vertical = 0
 rotation = -1.57077
 scale = Vector2(3.3019, 4.12798)
@@ -468,5 +468,17 @@ value = 100.0
 texture_under = ExtResource("10_vim17")
 texture_progress = ExtResource("11_kpei0")
 script = ExtResource("12_gksi6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -187.0
+offset_right = 127.0
+offset_bottom = -147.0
+grow_vertical = 0
+text = "Name"
+fit_content = true
 
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
