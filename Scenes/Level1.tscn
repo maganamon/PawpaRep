@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://x48b6pneke8k"]
+[gd_scene load_steps=30 format=3 uid="uid://x48b6pneke8k"]
 
-[ext_resource type="Script" path="res://Scenes/level1_spawner.gd" id="1_47jlv"]
+[ext_resource type="Script" path="res://Scripts/level1_spawner.gd" id="1_47jlv"]
 [ext_resource type="Texture2D" uid="uid://btjy78fiqjx2x" path="res://addons/sprites/tilesets/plains.png" id="1_ecmh8"]
 [ext_resource type="PackedScene" uid="uid://bwku1qxiytoci" path="res://Scenes/chris_player.tscn" id="1_qmsdg"]
 [ext_resource type="Texture2D" uid="uid://c3u4tu0trjv64" path="res://addons/sprites/tilesets/grass.png" id="2_gxvbk"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dnewd00n25h0h" path="res://Scenes/Base Mobs/cool_dog_mob.tscn" id="8_ytjer"]
 [ext_resource type="Texture2D" uid="uid://b6g1hrif86ms0" path="res://addons/sprites/objects/Health_Under.png" id="10_vim17"]
 [ext_resource type="Texture2D" uid="uid://bhcc7wkpk5oks" path="res://addons/sprites/objects/Health_Progress.png" id="11_kpei0"]
-[ext_resource type="Script" path="res://Scenes/TextureProgressBar.gd" id="12_gksi6"]
+[ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="12_gksi6"]
+[ext_resource type="FontFile" uid="uid://bmd5njex7skpe" path="res://addons/sprites/PeaberryDoublespace.ttf" id="13_lak40"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ecxni"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -469,16 +470,18 @@ texture_under = ExtResource("10_vim17")
 texture_progress = ExtResource("11_kpei0")
 script = ExtResource("12_gksi6")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="name_label" type="Label" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -187.0
-offset_right = 127.0
-offset_bottom = -147.0
+offset_left = -56.0
+offset_top = -189.0
+offset_right = 145.0
+offset_bottom = -158.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("13_lak40")
+theme_override_font_sizes/font_size = 30
 text = "Name"
-fit_content = true
+horizontal_alignment = 1
 
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

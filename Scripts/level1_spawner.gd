@@ -5,11 +5,18 @@ var dog_mob = preload("res://Scenes/Base Mobs/cool_dog_mob.tscn")
 var counter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print("Level1 _ready() called")
+	var newname = Player_Name.player_name
+	print("Player name from autoload: ", newname)
+	var name_label = $CanvasLayer/name_label
+	if name_label:
+		name_label.text = newname
+	else:
+		print("Error: name_label not found")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 

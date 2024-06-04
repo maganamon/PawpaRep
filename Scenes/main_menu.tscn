@@ -1,35 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmgdidbmsiqto"]
+[gd_scene load_steps=10 format=3 uid="uid://bmgdidbmsiqto"]
 
-[ext_resource type="Script" path="res://LineEdit.gd" id="1_cv6wt"]
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_n2ujx"]
+[ext_resource type="Script" path="res://Scripts/LineEdit.gd" id="1_cv6wt"]
+[ext_resource type="Script" path="res://Scripts/Global.gd" id="1_n2ujx"]
 [ext_resource type="FontFile" uid="uid://bmd5njex7skpe" path="res://addons/sprites/PeaberryDoublespace.ttf" id="2_gked1"]
 [ext_resource type="Texture2D" uid="uid://ce1tiuiog1lms" path="res://addons/sprites/objects/cat_collar2.png" id="3_vcbmd"]
+[ext_resource type="Texture2D" uid="uid://ck2nkon17tur7" path="res://addons/sprites/objects/Button_Neutral.png" id="4_qg0x3"]
+[ext_resource type="Texture2D" uid="uid://dcyjl7w8hst26" path="res://addons/sprites/objects/baby_blue_bckgrn.jpeg" id="5_8067e"]
+[ext_resource type="Texture2D" uid="uid://dvm8xxhq72h4q" path="res://addons/sprites/objects/Button_Pressed.png" id="7_tuw1i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bd02w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4q7e"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 289.0
-offset_top = 225.0
-offset_right = -538.0
-offset_bottom = -299.0
+offset_left = 354.0
+offset_top = 230.0
+offset_right = -473.0
+offset_bottom = -294.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n2ujx")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -222.0
+offset_right = 701.0
+offset_bottom = 335.0
+texture = ExtResource("5_8067e")
+
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 2
-offset_left = -26.0
-offset_top = 24.0
+offset_left = -83.0
+offset_top = 31.0
 offset_right = 119.0
-offset_bottom = 69.0
+offset_bottom = 76.0
 theme_override_colors/font_color = Color(0.93228, 0.68656, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.452586, 0.452586, 0.452586, 1)
+theme_override_colors/caret_color = Color(0.933333, 0.686275, 0, 1)
 theme_override_fonts/font = ExtResource("2_gked1")
-theme_override_font_sizes/font_size = 23
-placeholder_text = "Enter Name"
-alignment = 1
-max_length = 20
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bd02w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4q7e")
+placeholder_text = "NameHere"
+max_length = 40
 expand_to_text_length = true
 context_menu_enabled = false
 caret_blink = true
@@ -38,17 +56,31 @@ script = ExtResource("1_cv6wt")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(158, 56)
 
-[node name="Play_Button" type="Button" parent="."]
-layout_mode = 2
-offset_left = -54.0
-offset_top = 99.0
-offset_right = 155.0
-offset_bottom = 163.0
-text = "Play"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(303, 8.99999)
-scale = Vector2(0.390823, 0.390823)
+position = Vector2(266, 10)
+scale = Vector2(0.346044, 0.346044)
 texture = ExtResource("3_vcbmd")
+
+[node name="menu_timer" type="Timer" parent="."]
+
+[node name="Play_Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 93.0
+offset_right = 58.0
+offset_bottom = 144.0
+texture_normal = ExtResource("4_qg0x3")
+texture_pressed = ExtResource("7_tuw1i")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -81.0
+offset_top = 23.0
+offset_right = 125.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.933333, 0.686275, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "_ _ _ _ _ _ _ _"
 
 [connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
