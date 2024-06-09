@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://x48b6pneke8k"]
+[gd_scene load_steps=31 format=3 uid="uid://x48b6pneke8k"]
 
 [ext_resource type="Script" path="res://Scripts/level1_spawner.gd" id="1_47jlv"]
 [ext_resource type="Texture2D" uid="uid://btjy78fiqjx2x" path="res://addons/sprites/tilesets/plains.png" id="1_ecmh8"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bhcc7wkpk5oks" path="res://addons/sprites/objects/Health_Progress.png" id="11_kpei0"]
 [ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="12_gksi6"]
 [ext_resource type="FontFile" uid="uid://bmd5njex7skpe" path="res://addons/sprites/PeaberryDoublespace.ttf" id="13_lak40"]
+[ext_resource type="Script" path="res://Scenes/name_label.gd" id="14_0ins1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ecxni"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -481,6 +482,8 @@ offset_bottom = -158.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("13_lak40")
 theme_override_font_sizes/font_size = 30
+text = "Name"
 horizontal_alignment = 1
+script = ExtResource("14_0ins1")
 
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

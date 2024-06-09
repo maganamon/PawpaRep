@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Player_Name="*res://Scripts/Global.gd"
+Player_Name="*res://Scripts/Player_Name.gd"
 
 [display]
 

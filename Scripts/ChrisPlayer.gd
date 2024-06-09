@@ -164,3 +164,4 @@ func die():
 
 func _on_health_timer_timeout():
 	can_heal = true
+	

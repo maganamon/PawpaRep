@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmgdidbmsiqto"]
 
 [ext_resource type="Script" path="res://Scripts/LineEdit.gd" id="1_cv6wt"]
-[ext_resource type="Script" path="res://Scripts/Global.gd" id="1_n2ujx"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_n2ujx"]
 [ext_resource type="FontFile" uid="uid://bmd5njex7skpe" path="res://addons/sprites/PeaberryDoublespace.ttf" id="2_gked1"]
 [ext_resource type="Texture2D" uid="uid://ce1tiuiog1lms" path="res://addons/sprites/objects/cat_collar2.png" id="3_vcbmd"]
 [ext_resource type="Texture2D" uid="uid://ck2nkon17tur7" path="res://addons/sprites/objects/Button_Neutral.png" id="4_qg0x3"]
