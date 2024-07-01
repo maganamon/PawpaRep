@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+#Using this to test something 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 var speed = 30  # Adjust the speed of the mob as needed
 var player
