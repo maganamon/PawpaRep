@@ -13,7 +13,7 @@ var shooting_cooldown = 0.15
 
 ##Healing Variables #####################
 var can_heal = true
-var healing_pause = 3.0
+var healing_pause = 2.5
 # Called when the node is added to the scene
 var knockback = Vector2.ZERO  # To store knockback velocity
 var knockback_tween
@@ -113,7 +113,7 @@ func _process(_delta):
 
 	# Pass player's global position to the marker script
 	if (health < health_max) && can_heal:
-		health += 0.05
+		health += 0.08
 	
 ## Shooting Logic starts Here:
 ########################################################
@@ -137,7 +137,7 @@ func take_damage_mob(dmg_amt, pushed):
 	can_heal = false
 	health -= dmg_amt # Reduce current health by damage amount
 	health_max -= dmg_amt
-	if health <= 0:
+	if health <= 0.09:
 		health = 0
 		die()  # Call the die function if health reaches 0
 	### Have a 3 second healing cooldown after being hit ###
@@ -161,6 +161,10 @@ func die():
 	# Here you can restart the level or show a game over screen
 	get_tree().reload_current_scene()
 
+func heal_player(healing):
+	health_max += healing
+	if health_max > 10:
+		health_max = 10
 
 func _on_health_timer_timeout():
 	can_heal = true

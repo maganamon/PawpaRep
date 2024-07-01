@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://x48b6pneke8k"]
+[gd_scene load_steps=32 format=3 uid="uid://x48b6pneke8k"]
 
 [ext_resource type="Script" path="res://Scripts/level1_spawner.gd" id="1_47jlv"]
 [ext_resource type="Texture2D" uid="uid://btjy78fiqjx2x" path="res://addons/sprites/tilesets/plains.png" id="1_ecmh8"]
@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bhcc7wkpk5oks" path="res://addons/sprites/objects/Health_Progress.png" id="11_kpei0"]
 [ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="12_gksi6"]
 [ext_resource type="FontFile" uid="uid://bmd5njex7skpe" path="res://addons/sprites/PeaberryDoublespace.ttf" id="13_lak40"]
-[ext_resource type="Script" path="res://Scenes/name_label.gd" id="14_0ins1"]
+[ext_resource type="Script" path="res://Scripts/name_label.gd" id="14_0ins1"]
+[ext_resource type="Script" path="res://Scripts/kcounter_label.gd" id="15_hkww8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ecxni"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -400,7 +401,17 @@ sources/6 = SubResource("TileSetAtlasSource_1po23")
 [node name="Game" type="Node2D"]
 z_index = 2
 y_sort_enabled = true
+position = Vector2(12, 6)
 script = ExtResource("1_47jlv")
+
+[node name="Spawn_Health" type="Node2D" parent="."]
+position = Vector2(218, 77)
+
+[node name="SpawnArea" type="ReferenceRect" parent="Spawn_Health"]
+offset_left = -81.0
+offset_top = -9.0
+offset_right = 27.0
+offset_bottom = 27.0
 
 [node name="Spawn1" type="Node2D" parent="."]
 position = Vector2(383, 93)
@@ -441,7 +452,7 @@ layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(2, 655362, 7, 262163, 655362, 7, 24, 655362, 7, 655368, 655362, 7, 9, 2, 5, 262161, 2, 5, 589825, 2, 5, 589829, 524290, 6, 262150, 655362, 7, 131077, 524290, 6, 6, 524290, 6, 655376, 524290, 6, 524311, 524290, 6, 131094, 524290, 6, 19, 393218, 7, 589836, 393218, 7, 655381, 393218, 7, 65549, 524290, 6, 196633, 2, 1, 65559, 2, 1, 196616, 2, 1, 720900, 2, 1, 720915, 2, 1, 131083, 327682, 0, 196620, 2, 0, 655371, 327682, 0)
 
 [node name="spawn_timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.5
 autostart = true
 
 [node name="Spawn2" type="Node2D" parent="."]
@@ -485,5 +496,18 @@ theme_override_font_sizes/font_size = 30
 text = "Name"
 horizontal_alignment = 1
 script = ExtResource("14_0ins1")
+
+[node name="kcounter_label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 24.0
+offset_right = 25.0
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "Kills: 0"
+horizontal_alignment = 1
+script = ExtResource("15_hkww8")
 
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

@@ -38,6 +38,7 @@ func _update_sprite_direction(direction):
 func take_damage():
 	health -= 1
 	if health == 0:
+		Player_Name.kill_counter += 1
 		queue_free()
 
 func _on_area_2d_body_entered(body):
