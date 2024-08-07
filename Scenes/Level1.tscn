@@ -404,15 +404,6 @@ y_sort_enabled = true
 position = Vector2(12, 6)
 script = ExtResource("1_47jlv")
 
-[node name="Spawn_Health" type="Node2D" parent="."]
-position = Vector2(218, 77)
-
-[node name="SpawnArea" type="ReferenceRect" parent="Spawn_Health"]
-offset_left = -81.0
-offset_top = -9.0
-offset_right = 27.0
-offset_bottom = 27.0
-
 [node name="Spawn1" type="Node2D" parent="."]
 position = Vector2(383, 93)
 
@@ -454,6 +445,15 @@ layer_2/tile_data = PackedInt32Array(2, 655362, 7, 262163, 655362, 7, 24, 655362
 [node name="spawn_timer" type="Timer" parent="."]
 wait_time = 4.5
 autostart = true
+
+[node name="Spawn_Health" type="Node2D" parent="."]
+position = Vector2(218, 77)
+
+[node name="SpawnArea" type="ReferenceRect" parent="Spawn_Health"]
+offset_left = -81.0
+offset_top = -9.0
+offset_right = 27.0
+offset_bottom = 27.0
 
 [node name="Spawn2" type="Node2D" parent="."]
 position = Vector2(16, 64)

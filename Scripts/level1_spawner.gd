@@ -7,7 +7,7 @@ var able_to_spawn = true
 
 var clown_mob = preload("res://Scenes/Base Mobs/Clown_Bozo.tscn")
 var dog_mob = preload("res://Scenes/Base Mobs/cool_dog_mob.tscn")
-var health_pack = preload("res://Scenes/battery_pack.tscn")
+var health_pack = preload("res://Scenes/battery_v_2.tscn")
 var counter = 0
 # Called when the node enters the scene tree for the first time.
 

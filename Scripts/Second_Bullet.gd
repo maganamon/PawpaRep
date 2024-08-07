@@ -23,7 +23,7 @@ func _physics_process(delta):
 		queue_free()
 		
 
-
+#Logic to free the bullet
 func _on_body_entered(body):
 	queue_free()
 	if body.has_method("take_damage"):

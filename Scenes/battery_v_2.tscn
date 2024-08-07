@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqwkam4i8nmvi"]
+
+[ext_resource type="Script" path="res://Scripts/battery_v_2.gd" id="1_cu7ke"]
+[ext_resource type="Texture2D" uid="uid://01xcydlc43q1" path="res://addons/sprites/objects/green_battery.png" id="2_032s3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjj0c"]
+size = Vector2(163.904, 131.547)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx7ue"]
+size = Vector2(163.904, 129.705)
+
+[node name="Battery_V2" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(0.543, 0.543)
+motion_mode = 1
+script = ExtResource("1_cu7ke")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+texture = ExtResource("2_032s3")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0.92081, 55.7735)
+shape = SubResource("RectangleShape2D_tjj0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0.92081, 54.8527)
+shape = SubResource("RectangleShape2D_lx7ue")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
